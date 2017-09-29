@@ -8,6 +8,7 @@
     "gh-pages": "^1.0.0",
     "material-ui": "^0.19.1",
     "mdi-react": "^2.0.46",
+    "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-animate.css": "0.0.4",

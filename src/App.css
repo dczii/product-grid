@@ -1,7 +1,21 @@
 body {
-  background-color: gray;
+  background-color: #E0E0E0;
 }
 
 .center {
 	text-align: center;
+}
+
+.grid-header-container {
+	max-width: 80%;
+    margin: 0 auto !important;
+	margin-bottom: 10px;
+}
+.grid-header {
+	font-weight: bold;
+}
+
+.grid-body-container {
+	max-width: 80%;
+	margin: 0 auto !important;
 }
