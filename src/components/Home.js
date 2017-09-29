@@ -16,7 +16,8 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            results: []
+            results: [],
+            sort: ''
         };
     }  
 
@@ -24,7 +25,12 @@ class Home extends Component {
         this.handleSearch();
     }
     handleSearch() {
-        superagent.get('http://localhost:3000/products?_page=1&_limit=20')
+        superagent.get('http://localhost:3000/products')
+            .query({
+                _page: 1,
+                _limit: 20,
+                _sort: 'size'
+            })
             .end((error, response) => {
                if (error) {
                    console.error(error);
@@ -39,8 +45,8 @@ class Home extends Component {
         <Row className="center">
             <Header />
             <Col md={12} >
-                Creatella Products
-                <Row className='grid-header-container'>
+                <p style={{marginBottom:20}}>Creatella Products</p>
+                <Row className='grid-header-container grid-content-container'>
                     <Col xs={3} className='grid-header'>
                         Date
                     </Col>
@@ -56,7 +62,7 @@ class Home extends Component {
                 </Row>
                     {this.state.results ? 
                         _.map(this.state.results, (val) => {
-                            return(<Row className='grid-body-container' key={val.id}>
+                            return(<Row className='grid-body-container grid-content-container' key={val.id}>
                                 <Col xs={3}>
                                     { moment(val.date).isBefore(moment().subtract(7, 'days')) ?
                                         moment(val.date).format("MMM Do YY")
