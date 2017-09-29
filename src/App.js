@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 import Home from './components/Home';
-import superagent from 'superagent';
-import jsonp from 'superagent-jsonp';
 
 class App extends Component {
   constructor(props) {
