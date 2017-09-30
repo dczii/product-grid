@@ -44,3 +44,8 @@ body {
 	height: 100px;
 	width: 100px;
 }
+
+.sponsor-container {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #E0E0E0;
+}

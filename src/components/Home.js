@@ -79,6 +79,8 @@ class Home extends Component {
     }    
 
   render() {
+    let url = 'http://localhost:3000/ads/?r=';
+
     return (
         <Row className="center">
             <Header />
@@ -115,8 +117,14 @@ class Home extends Component {
                     loader={<ReactLoading type="bars" color="#4CAF50" className="load-icon"/>}
                 >
                 {this.state.results.length > 0 ? 
-                    _.map(this.state.results, (val) => {
+                    _.map(this.state.results, (val, idx) => {
                         return(<Row className='grid-body-container grid-content-container' key={val.id} style={{display: 'flex', flexWrap: 'wrap'}}>
+                           {(idx % 20) === 0 && idx != 0 ?
+                                <Col xs={12} className='sponsor-container'>
+                                    <span style={{float:'left'}}>Sponsor</span>
+                                    <img src={url + Math.floor(Math.random()*1000)}/>
+                                </Col>
+                                : ''}
                             <Col xs={3}>
                                 { moment(val.date).isBefore(moment().subtract(7, 'days')) ?
                                     moment(val.date).format("MMM Do YY")
