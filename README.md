@@ -4,8 +4,7 @@ Make sure test API is running first. This app runs in port `http://localhost:900
 
 ## Clone API
 
-Clone the API first before this repository `[https://github.com/dczii/creatella-test](https://github.com/dczii/creatella-test)
-`
+Clone the API first before this repository [https://github.com/dczii/creatella-test](https://github.com/dczii/creatella-test)
 
 ### Installing
 ```
