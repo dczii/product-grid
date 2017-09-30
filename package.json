@@ -13,6 +13,7 @@
     "react-animate.css": "0.0.4",
     "react-dom": "^15.6.1",
     "react-grid-system": "^2.9.6",
+    "react-loading": "^0.1.4",
     "react-scripts": "1.0.13",
     "superagent": "^3.6.0",
     "superagent-jsonp": "^0.1.1"
