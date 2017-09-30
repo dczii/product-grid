@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-grid-system';
+import { Col } from 'react-grid-system';
 
 class Footer extends Component {
   render() {

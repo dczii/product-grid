@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import superagent from 'superagent';
-import jsonp from 'superagent-jsonp';
 import { Row, Col } from 'react-grid-system';
-import SearchWebIcon from 'mdi-react/SearchWebIcon';
 import _ from 'lodash';
 import moment from 'moment';
 import Header from './Header';
 import Footer from './Footer';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import ReactLoading from 'react-loading';
 import InfiniteScroll from 'react-infinite-scroller';
@@ -26,15 +22,18 @@ class Home extends Component {
     }  
 
     componentDidMount() {
+        //Initiate all Items and partial loaded items
         this.loadAllItems();
         this.handleSearch();
     }
 
+    //Function when sorting is triggered. all items will become 0 again to refresh the results.
     onSortChange = (e,idx) => {
         this.setState({sort: idx, results: [], limit: 20},
             this.handleSearch.bind(this))
     }
 
+    //Function to run when loading all items
     loadAllItems = () => {
         superagent.get('http://localhost:3000/products')
             .query({
@@ -49,6 +48,7 @@ class Home extends Component {
             });
     }
 
+    //Function to run when partial items need to be loaded
     handleSearch = (limit) => {
         let sort = this.state.sort;
         let newLimit = limit || this.state.limit;
@@ -119,7 +119,8 @@ class Home extends Component {
                 {this.state.results.length > 0 ? 
                     _.map(this.state.results, (val, idx) => {
                         return(<Row className='grid-body-container grid-content-container' key={val.id} style={{display: 'flex', flexWrap: 'wrap'}}>
-                           {(idx % 20) === 0 && idx != 0 ?
+                            {/* Sponsoed ADS which will only show every ater 20 items. */}
+                           {(idx % 20) === 0 && idx !== 0 ?
                                 <Col xs={12} className='sponsor-container'>
                                     <span style={{float:'left'}}>Sponsor</span>
                                     <img src={url + Math.floor(Math.random()*1000)}/>
